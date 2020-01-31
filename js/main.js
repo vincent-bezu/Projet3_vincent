@@ -39,8 +39,8 @@ L.tileLayer("https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png", {
 
         }).addTo(mymap);
 
-
-ajaxGet('https://api.jcdecaux.com/vls/v1/stations?contract=cergy-pontoise&apiKey=fb5f8f610f8a6b5058a882aaad56d5027ad4ede5', reponse=>{
+const ajax = new Ajax();
+ajax.ajaxGet('https://api.jcdecaux.com/vls/v1/stations?contract=cergy-pontoise&apiKey=fb5f8f610f8a6b5058a882aaad56d5027ad4ede5', reponse=>{
 	console.log(JSON.parse(reponse));
 
 	const stations = JSON.parse(reponse);
@@ -49,7 +49,7 @@ ajaxGet('https://api.jcdecaux.com/vls/v1/stations?contract=cergy-pontoise&apiKey
 	 	let marker = L.marker([station.position.lat, station.position.lng]).addTo(mymap);
 	 //	marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup() //
 	 
-		marker.addEventListener('click', function() {   
+		marker.addEventListener('click', ()=> {   
 		   
     		console.log(station.address);
 
