@@ -1,36 +1,5 @@
-
-
-// image dans le tableau // 
-let image = ['venus.jpg', 'mercure.jpg', 'terre.jpg', 'mars.jpg', 'jupiter.png'];
-
-let i = 0;
-
-// fonction pour le slide suivant //
-
-function nextImage() {
-	let sliderImage = document.getElementById('sliderimage');
-	if (i<image.length-1 ) { // 0, 1, 2, 3, 4, 
-		i = i+1; // 1, 2, 3, 4, 5
-		}
-		else {
-			i = 0; 
-		}
-			sliderImage.src = "img/" + image[i];
-}
-
-//fonction pour l'image précédente //
-
-function previousImage(){
-	let sliderImage = document.getElementById('sliderimage');
-	if (i>0) { // 1, 2, 3, 4, 5
-		i = i-1; // 0, 1, 2, 3, 4
-		}
-		else {
-			i = image.length-1; 
-		}
-			sliderImage.src = "img/" + image[i];
-
-}
+const slider = new Slider();
+slider.init();
 
 let mymap = L.map('map').setView([49.04711303984615, 2.060267538583793], 13);
 
@@ -40,6 +9,7 @@ L.tileLayer("https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png", {
         }).addTo(mymap);
 
 const ajax = new Ajax();
+
 ajax.ajaxGet('https://api.jcdecaux.com/vls/v1/stations?contract=cergy-pontoise&apiKey=fb5f8f610f8a6b5058a882aaad56d5027ad4ede5', reponse=>{
 	console.log(JSON.parse(reponse));
 
@@ -59,11 +29,46 @@ ajax.ajaxGet('https://api.jcdecaux.com/vls/v1/stations?contract=cergy-pontoise&a
 
 		});
 
+		marker.addEventListener('click', ()=> {
+
+		const name_station = document.getElementById('name_station')
+
+		name_station.innerHTML = station.name;			
+		});
+
+		marker.addEventListener('click', ()=>{
+
+			const slot = document.getElementById('slot')
+
+			slot.innerHTML = station.bike_stands;
+		});
+
+		marker.addEventListener('click', ()=> {
+
+			const bikes = document.getElementById('bikes')
+
+			bikes.innerHTML = station.available_bike_stands;
+
+		});
+
 	 }
 	 
-	 
-
-
-
 } )
+
+const reserver = document.getElementById('reservation');
+reserver.addEventListener('click', ()=>{
+	formulaire = document.getElementById('formulaire');
+ 
+	formulaire.style.display = 'inline-block';
+});
+
+const continuer = document.getElementById('continuer');
+continuer.addEventListener('click', ()=>{
+	formulaire = document.getElementById('formulaire');
+	formulaire.style.display = 'none';
+
+	canvas_signature = document.getElementById('canvas_signature');
+ 	
+ 	canvas_signature.style.display = 'block';
+})
 

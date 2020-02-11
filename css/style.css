@@ -26,7 +26,7 @@ img {
 	box-shadow: 0px 0px 5px 2px #ccc;
 }
 
-button{
+#previous, #next{
 	padding: 20px;
 	border: none;
 	background: rgba(255,55,0,0.8407738095238095);
@@ -38,12 +38,12 @@ button{
 
 }
 
-.next{
+#next{
 	border-radius: 10px 0px 0px 10px;
 	margin-left: 943px;
 }
 
-.previous{
+#previous{
 	border-radius: 0px 10px 10px 0px;
 }
 
@@ -80,8 +80,8 @@ button{
 ul li{
 	text-align: center;
 	list-style: none;
-	margin: 40px 0;
-	font-size: 1.4em;
+	margin: 10px 0;
+	font-size: 1.2em;
 	font-weight: bold;
 	color: rgb(99, 240, 95);
 
@@ -89,4 +89,71 @@ ul li{
 
 ul{
 	margin-top: 80px;
+	padding-inline-start:0px;
+}
+
+#reservation{
+	width: 150px;
+	height: 50px;
+	border: solid 4px darkgrey;
+	background-color: rgb(99, 240, 95);
+	text-decoration: none;
+	color: rgb(243, 123, 4);
+	font-size: 1.2em;
+	font-weight: bold;
+	align-items: center;
+	display: block;
+	margin: 0 auto;
+	cursor: pointer;
+}
+
+#formulaire{
+	display: none;
+	border: solid 4px darkgrey;
+	align-items: center;
+	margin: 20px auto;
+	width: 550px;
+ 	height: 550px;
+ 	background-color: rgb(255, 255, 255);
+}
+
+#name, #surname{
+	width: 80%;
+	height: 30px;
+	margin-left: 50px;
+	margin-top: 20px;
+	background-color: rgb(99, 240, 95);
+	color: rgb(243, 123, 4);
+	font-size: 1.2em;
+}
+
+#submit{
+	width: 40%;
+	background-color: rgb(99, 240, 95);
+	color: rgb(255, 255, 255);
+	font-weight: bold;
+	font-size: 1em;
+	margin: 20px auto;
+	display: block;
+}
+
+#continuer{
+	width: 40%;
+	background-color: rgb(99, 240, 95);
+	color: rgb(255, 255, 255);
+	font-weight: bold;
+	font-size: 1em;
+	margin: 20px auto;
+	display: block;
+}
+
+canvas{
+	border: solid 4px darkgrey;
+	display: block;
+	margin: 20px auto;
+}
+
+#canvas_signature{
+	display: none;
+	position: relative;
 }

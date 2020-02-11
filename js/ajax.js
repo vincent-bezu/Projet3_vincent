@@ -1,4 +1,7 @@
 class Ajax{
+    constructor() {
+        this.test = 'coucou';
+    }
     ajaxGet(url, callback) {
         let request = new XMLHttpRequest();
         request.open("GET", url);
@@ -12,6 +15,11 @@ class Ajax{
             // La requête n'a pas réussi à atteindre le serveur
         });
         request.send(null);
+        this.ajaxPut();
+    }
+
+    ajaxPut(){
+        console.log(this.test);
     }
 
 }
