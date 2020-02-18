@@ -1,14 +1,22 @@
 class Slider{
-	constructor(){
+	constructor() {
 		this.images = ['venus.jpg', 'mercure.jpg', 'terre.jpg', 'mars.jpg', 'jupiter.png'];
 		this.i = 0;
+		this.intervalID = -1;
+		this.pause = document.getElementById('pause');
+		this.play = document.getElementById('play');
 	}
 
 	init () {
+		this.scrolling();
 		const next = document.getElementById('next');
 		next.addEventListener('click', ()=> this.nextImage());
 		const previous = document.getElementById('previous');
 		previous.addEventListener('click', ()=> this.previousImage());
+		
+		this.pause.addEventListener('click', ()=> this.pauseSlider());
+	
+		this.play.addEventListener('click', ()=> this.playSLider());
 	}
 
 
@@ -20,6 +28,7 @@ class Slider{
 			this.i = 0; 
 		}
 		sliderImage.src = "img/" + this.images[this.i];
+
     }
 
 	previousImage(){
@@ -31,4 +40,23 @@ class Slider{
 		}
 		sliderImage.src = "img/" + this.images[this.i];
 	}
+
+	scrolling(){
+		this.intervalID = setInterval(()=>this.nextImage(), 2000);
+	}
+
+	pauseSlider(){
+		this.pause.innerHTML = "pause";
+		this.play.innerHTML = "I";
+		clearInterval(this.intervalID);
+	}
+
+	playSLider(){
+		this.play.innerHTML = "play";
+		this.pause.innerHTML = "O"
+		this.scrolling()
+	}
 }
+
+
+

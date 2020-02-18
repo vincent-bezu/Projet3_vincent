@@ -26,14 +26,13 @@ img {
 	box-shadow: 0px 0px 5px 2px #ccc;
 }
 
-#previous, #next{
+#previous, #next, #play, #pause{
 	padding: 20px;
 	border: none;
 	background: rgba(255,55,0,0.8407738095238095);
 	font-size: 30px;
 	color: white;
 	position: absolute;
-	top: 45%;
 	cursor: pointer;
 
 }
@@ -41,10 +40,29 @@ img {
 #next{
 	border-radius: 10px 0px 0px 10px;
 	margin-left: 943px;
+	top: 45%;
 }
 
 #previous{
 	border-radius: 0px 10px 10px 0px;
+	top: 45%;
+}
+
+#play{
+	border-radius: 10px 0px 0px 10px;
+	position: absolute;
+	bottom: 0px;
+	left: 440px;
+
+}
+
+#pause{
+	border-radius: 0px 10px 10px 0px;
+	position: absolute;
+	bottom: 0px;
+	left: 500px;
+
+
 }
 
 #map {
@@ -156,4 +174,27 @@ canvas{
 #canvas_signature{
 	display: none;
 	position: relative;
+	border: solid 4px darkgrey;
+	background-color: rgb(255, 255, 255);
+	width: 550px;
+	height: 450px;
+	margin: 20px auto;
+}
+
+#resume{
+	display: none;
+	width: 550px;
+	height: 300px;
+	border: solid 4px darkgrey;
+	font-size: 1.2em;
+	background-color: rgb(255, 255, 255);
+	color: rgb(99, 240, 95);
+	font-weight: bold;
+	margin: 20px auto;
+	line-height: 5px;
+}
+
+#signatureCheck{
+	display: none;
+	z-index: -5;
 }

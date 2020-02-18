@@ -20,40 +20,19 @@ ajax.ajaxGet('https://api.jcdecaux.com/vls/v1/stations?contract=cergy-pontoise&a
 	 //	marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup() //
 	 
 		marker.addEventListener('click', ()=> {   
-		   
-    		console.log(station.address);
+		    sessionStorage.setItem("adresse", station.address);
 
     		const address = document.getElementById('address')
-
-    		address.innerHTML = station.address;
-
-		});
-
-		marker.addEventListener('click', ()=> {
-
-		const name_station = document.getElementById('name_station')
-
-		name_station.innerHTML = station.name;			
-		});
-
-		marker.addEventListener('click', ()=>{
-
+			address.innerHTML = station.address;
+			const name_station = document.getElementById('name_station')
+			name_station.innerHTML = station.name;
 			const slot = document.getElementById('slot')
-
 			slot.innerHTML = station.bike_stands;
-		});
-
-		marker.addEventListener('click', ()=> {
-
 			const bikes = document.getElementById('bikes')
-
 			bikes.innerHTML = station.available_bike_stands;
-
 		});
-
-	 }
-	 
-} )
+	} 
+});
 
 const reserver = document.getElementById('reservation');
 reserver.addEventListener('click', ()=>{
@@ -64,11 +43,44 @@ reserver.addEventListener('click', ()=>{
 
 const continuer = document.getElementById('continuer');
 continuer.addEventListener('click', ()=>{
+	const surname = document.getElementById('surname').value;
+	localStorage.setItem('surname', surname);
+	const name = document.getElementById('name').value;
+	localStorage.setItem('name', name);
+	
+
 	formulaire = document.getElementById('formulaire');
 	formulaire.style.display = 'none';
 
 	canvas_signature = document.getElementById('canvas_signature');
  	
  	canvas_signature.style.display = 'block';
-})
+
+});
+
+const valider = document.getElementById('submit')
+valider.addEventListener('click', ()=>{
+	
+	canvas_signature = document.getElementById('canvas_signature');
+ 	
+ 	canvas_signature.style.display = 'none';
+
+ 	resume = document.getElementById('resume');
+ 	resume.style.display = 'block';
+
+ 	const adresse = sessionStorage.getItem("adresse");
+ 	resumebikes = document.getElementById('resumebikes');
+ 	resumebikes.innerHTML = adresse;
+
+ 	const name = localStorage.getItem("name");
+ 	resumename = document.getElementById('resumename');
+ 	resumename.innerHTML = name;
+
+ 	const surname = localStorage.getItem("surname");
+ 	resumesurname = document.getElementById('resumesurname');
+	resumesurname.innerHTML = surname;
+
+
+ });
+
 
