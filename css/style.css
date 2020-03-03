@@ -82,6 +82,7 @@ img {
  	float: left;
  	margin-left: 80px;
  	background-color: rgb(255, 255, 255);
+ 	display: none;
 
 }
 
@@ -184,7 +185,7 @@ canvas{
 #resume{
 	display: none;
 	width: 550px;
-	height: 300px;
+	height: 600px;
 	border: solid 4px darkgrey;
 	font-size: 1.2em;
 	background-color: rgb(255, 255, 255);
@@ -197,4 +198,31 @@ canvas{
 #signatureCheck{
 	display: none;
 	z-index: -5;
+}
+
+#countdown{
+	width: 550px;
+	height: 50px;
+	line-height: 20px;
+	color: black;
+	display: block;
+}
+
+#resume p{
+	line-height: 20px;
+}
+
+#resumebikes{
+	display: inline-block;
+	line-height: 20px;
+}
+
+#reservation_terminé{
+	color: red;
+	margin: 0 auto;
+	display: none;
+}
+
+#end_timer{
+	margin-top: 15px;
 }

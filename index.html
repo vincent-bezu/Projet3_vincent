@@ -60,20 +60,20 @@
 			</form>
 			
 			<div id="canvas_signature">
-				<canvas id="signatureCheck" width="300" height="300"></canvas>
-				<canvas id="signature" width="300" height="300">Problème d'affichage veuillez raffraichir la page.</canvas>
-				<button id="submit">Reserver</button>
+				<canvas id="signatureCheck" width="300" height="200"></canvas>
+				<canvas id="signature" width="300" height="200">Problème d'affichage veuillez raffraichir la page.</canvas>
+				<input id="clear" type="reset" value="annuler">
+				<input id="submit" type="button" value="reserver"> 
 			</div>
 
-			<div id="resume"><p>Nom:<div id="resumename"></div></p><p>Prénom:<div id="resumesurname"></div></p><p>vélo réservé à la station:<div id="resumebikes"></div> </p><p>votre réservation se termine dans:</p></div>
-				
+			<div id="resume"><p>Nom:<div id="resumename"></div></p><p>Prénom:<div id="resumesurname"></div></p><p>vélo réservé à la station:<div id="resumebikes"></div> </p><p>votre réservation se termine dans:<div id="countdown">...</div> </p><div id="reservation_terminé">Réservation terminée</div><button id="new_reservation">nouvelle réservation</button></div> 
 
 		<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
   		 integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
    		crossorigin=""></script>
    		<script type="text/javascript" src="./js/slider.js" async></script>
 		<script type="text/javascript" src="./js/ajax.js" async></script>
-
+		<script type="text/javascript" src="./js/timer.js" async></script>
 		<script type="text/javascript" src="./js/map.js" async></script>
 		<script type="text/javascript" src="./js/canvas.js" async></script>
 		<script type="text/javascript" src="./js/main.js" async></script>

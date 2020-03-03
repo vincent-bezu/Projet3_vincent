@@ -1,6 +1,6 @@
 class Ajax{
     constructor() {
-        this.test = 'coucou';
+        this.test = 'coucou'; // attribut //
     }
     ajaxGet(url, callback) {
         let request = new XMLHttpRequest();
@@ -8,7 +8,7 @@ class Ajax{
         request.addEventListener("load", function () {
             if (request.status >= 200 && request.status < 400) {// Le serveur a réussi à traiter la requête
                 // Appelle la fonction callback en lui passant la réponse de la requête
-    callback(request.responseText);
+                callback(request.responseText);
             }
         });
         request.addEventListener("error", function () {

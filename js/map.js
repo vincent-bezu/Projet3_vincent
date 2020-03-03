@@ -1,11 +1,14 @@
 class Map {
-	constructor (){
+	constructor (chronometre){
 		this.formulaire = document.getElementById('formulaire');
+		this.information = document.getElementById('information');
 		this.canvas_signature = document.getElementById('canvas_signature');
 		this.resume = document.getElementById('resume');
 		this.resumebikes = document.getElementById('resumebikes');
 		this.resumename = document.getElementById('resumename');
 		this.resumesurname = document.getElementById('resumesurname');
+		this.chronometre = chronometre;
+		
 	}
 
 	init (){
@@ -27,7 +30,8 @@ class Map {
 			 	let marker = L.marker([station.position.lat, station.position.lng]).addTo(mymap);
 			 //	marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup() //
 			 
-				marker.addEventListener('click', ()=> {   
+				marker.addEventListener('click', ()=> { 
+					 this.information.style.display = 'block'; 
 				    sessionStorage.setItem("adresse", station.address);
 
 		    		const address = document.getElementById('address')
@@ -50,8 +54,21 @@ class Map {
 		const continuer = document.getElementById('continuer');
 		continuer.addEventListener('click', ()=>{
 			const surname = document.getElementById('surname').value;
-			localStorage.setItem('surname', surname);
 			const name = document.getElementById('name').value;
+
+			if (surname.length <= 2){
+				alert ('Vous avez oublié de saisir votre prénom');
+				return false;
+			}
+
+			
+			if (name.length <= 2){
+				alert ('Vous avez oublié de saisir votre nom');
+				return false;
+			}	
+		
+			localStorage.setItem('surname', surname);
+			
 			localStorage.setItem('name', name);
 			
 			this.formulaire.style.display = 'none';
@@ -60,7 +77,12 @@ class Map {
 		});
 
 		const valider = document.getElementById('submit')
-		valider.addEventListener('click', ()=>{								 	
+		valider.addEventListener('click', ()=>{	
+			if (document.getElementById('signature').toDataURL() == document.getElementById('signatureCheck').toDataURL()) {
+           		alert ('Veuillez apposer votre signature!');
+            	document.getElementById('countdown').innerHTML = 'Veuillez vérifier les champs du forumlaire.';
+            	return false;
+        	}							 	
 		 	this.canvas_signature.style.display = 'none';
 		 	this.resume.style.display = 'block';
 		 	const adresse = sessionStorage.getItem("adresse");
@@ -69,6 +91,12 @@ class Map {
 		 	this.resumename.innerHTML = name;
 		 	const surname = localStorage.getItem("surname");
 			this.resumesurname.innerHTML = surname;
+			this.chronometre.start_chrono(5);
 		 });
+
+
+
+
+
 	}
 }
