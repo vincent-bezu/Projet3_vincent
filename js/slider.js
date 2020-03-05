@@ -1,10 +1,10 @@
 class Slider{
 	constructor() {
-		this.images = ['venus.jpg', 'mercure.jpg', 'terre.jpg', 'mars.jpg', 'jupiter.png'];
+		this.images = ['etape1.png', 'etape2.png', 'etape3.png', 'etape4.png', 'etape5.png'];
 		this.i = 0;
 		this.intervalID = -1;
 		this.pause = document.getElementById('pause');
-		this.play = document.getElementById('play');
+		this.isPaused = false;
 	}
 
 	init () {
@@ -14,9 +14,13 @@ class Slider{
 		const previous = document.getElementById('previous');
 		previous.addEventListener('click', ()=> this.previousImage());
 		
-		this.pause.addEventListener('click', ()=> this.pauseSlider());
-	
-		this.play.addEventListener('click', ()=> this.playSLider());
+		this.pause.addEventListener('click', ()=> {
+			if (this.isPaused === false){
+				this.pauseSlider();
+			} else {
+				this.playSlider();
+			}
+		});
 	}
 
 
@@ -42,19 +46,24 @@ class Slider{
 	}
 
 	scrolling(){
-		this.intervalID = setInterval(()=>this.nextImage(), 2000);
+		this.intervalID = setInterval(()=>this.nextImage(), 3000);
 	}
 
 	pauseSlider(){
-		this.pause.innerHTML = "pause";
-		this.play.innerHTML = "I";
+		this.isPaused = true;
+		const icone = document.getElementById('pausebutton');
+		icone.classList.remove('fa-pause-circle');
+		icone.classList.add('fa-play-circle');
 		clearInterval(this.intervalID);
 	}
 
-	playSLider(){
-		this.play.innerHTML = "play";
-		this.pause.innerHTML = "O"
-		this.scrolling()
+
+	playSlider(){
+		this.isPaused = false;
+		const icone = document.getElementById('pausebutton');
+		icone.classList.remove('fa-play-circle');
+		icone.classList.add('fa-pause-circle');
+		this.scrolling();
 	}
 }
 

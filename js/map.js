@@ -12,6 +12,11 @@ class Map {
 	}
 
 	init (){
+		if (sessionStorage.getItem('timer') > 0 ){
+			this.resume.style.display = 'block';
+			this.addInfo(sessionStorage.getItem('timer'));
+		}
+
 		let mymap = L.map('map').setView([49.04711303984615, 2.060267538583793], 13);
 
 		L.tileLayer("https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png", {
@@ -85,18 +90,19 @@ class Map {
         	}							 	
 		 	this.canvas_signature.style.display = 'none';
 		 	this.resume.style.display = 'block';
-		 	const adresse = sessionStorage.getItem("adresse");
-		 	this.resumebikes.innerHTML = adresse;
-		 	const name = localStorage.getItem("name");
-		 	this.resumename.innerHTML = name;
-		 	const surname = localStorage.getItem("surname");
-			this.resumesurname.innerHTML = surname;
-			this.chronometre.start_chrono(5);
+		 	this.addInfo(1200);
+		 	
 		 });
-
-
-
-
-
 	}
+
+	addInfo(duration){
+		const adresse = sessionStorage.getItem("adresse");
+		this.resumebikes.innerHTML = adresse;
+	 	const name = localStorage.getItem("name");
+	 	this.resumename.innerHTML = name;
+	 	const surname = localStorage.getItem("surname");
+		this.resumesurname.innerHTML = surname;
+		this.chronometre.start_chrono(duration);
+	}
+
 }

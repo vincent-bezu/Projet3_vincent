@@ -26,8 +26,18 @@ img {
 	box-shadow: 0px 0px 5px 2px #ccc;
 }
 
-#previous, #next, #play, #pause{
+#previous, #next{
 	padding: 20px;
+	border: none;
+	background: rgba(255,55,0,0.8407738095238095);
+	
+	color: white;
+	position: absolute;
+	cursor: pointer;
+}
+
+#play, #pause{
+	padding: 15px;
 	border: none;
 	background: rgba(255,55,0,0.8407738095238095);
 	font-size: 30px;
@@ -39,7 +49,7 @@ img {
 
 #next{
 	border-radius: 10px 0px 0px 10px;
-	margin-left: 943px;
+	margin-left: 947px;
 	top: 45%;
 }
 
@@ -52,7 +62,7 @@ img {
 	border-radius: 10px 0px 0px 10px;
 	position: absolute;
 	bottom: 0px;
-	left: 440px;
+	left: 430px;
 
 }
 
@@ -60,7 +70,7 @@ img {
 	border-radius: 0px 10px 10px 0px;
 	position: absolute;
 	bottom: 0px;
-	left: 500px;
+	left: 520px;
 
 
 }
@@ -219,10 +229,37 @@ canvas{
 
 #reservation_terminé{
 	color: red;
-	margin: 0 auto;
+	margin: 15px auto;
 	display: none;
 }
 
 #end_timer{
 	margin-top: 15px;
+}
+
+.fa-forward:before, .fa-backward:before{
+	font-size: 1em;
+}
+
+.fa-play-circle:before, .fa-pause-circle:before{
+	font-size: 0.8em;
+}
+
+#resumename, #resumesurname, #resumebikes, #countdown{
+	color: rgba(255,55,0,0.8407738095238095);
+}
+
+#new_reservation{
+	width: 200px;
+	height: 100px;
+	border: solid 4px darkgrey;
+	background-color: rgb(99, 240, 95);
+	text-decoration: none;
+	color: rgb(243, 123, 4);
+	font-size: 1.2em;
+	font-weight: bold;
+	align-items: center;
+	display: block;
+	margin: 0 auto;
+	cursor: pointer;
 }
