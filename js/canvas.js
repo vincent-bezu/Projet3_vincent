@@ -45,7 +45,7 @@ class Canvas {
         if (this.finger === false) {
             mouseX = e.clientX - this.canvas.getBoundingClientRect().left;
             mouseY = e.clientY - this.canvas.getBoundingClientRect().top;
-        } else if (e.touches.length == 1) {
+        } else if (e.touches.length === 1) {
             mouseX = e.touches[0].pageX - this.canvas.getBoundingClientRect().left;
             mouseY = e.touches[0].pageY - this.canvas.getBoundingClientRect().top - (e.touches[0].pageY - e.touches[0].clientY);
         }

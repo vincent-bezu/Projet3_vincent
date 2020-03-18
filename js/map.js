@@ -33,7 +33,6 @@ class Map {
 			 for (let i=0; i<stations.length; i++) { // 0 1 2 
 			 	let station = stations[i];
 			 	let marker = L.marker([station.position.lat, station.position.lng]).addTo(mymap);
-			 //	marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup() //
 			 
 				marker.addEventListener('click', ()=> { 
 					 this.information.style.display = 'block'; 

@@ -1,6 +1,5 @@
 class Ajax{
     constructor() {
-        this.test = 'coucou'; // attribut //
     }
     ajaxGet(url, callback) {
         let request = new XMLHttpRequest();
@@ -15,11 +14,8 @@ class Ajax{
             // La requête n'a pas réussi à atteindre le serveur
         });
         request.send(null);
-        this.ajaxPut();
     }
 
-    ajaxPut(){
-        console.log(this.test);
-    }
+    
 
 }
