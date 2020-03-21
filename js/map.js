@@ -7,6 +7,7 @@ class Map {
 		this.resumebikes = document.getElementById('resumebikes');
 		this.resumename = document.getElementById('resumename');
 		this.resumesurname = document.getElementById('resumesurname');
+		this.map = document.getElementById('map');
 		this.chronometre = chronometre;
 		
 	}
@@ -14,7 +15,10 @@ class Map {
 	init (){
 		if (sessionStorage.getItem('timer') > 0 ){
 			this.resume.style.display = 'block';
+			this.map.style.display = 'none';
+			this.information.style.display = 'none';
 			this.addInfo(sessionStorage.getItem('timer'));
+			
 		}
 
 		let mymap = L.map('map').setView([49.04711303984615, 2.060267538583793], 13);
@@ -35,7 +39,8 @@ class Map {
 			 	let marker = L.marker([station.position.lat, station.position.lng]).addTo(mymap);
 			 
 				marker.addEventListener('click', ()=> { 
-					 this.information.style.display = 'block'; 
+					this.information.style.display = 'block';
+
 				    sessionStorage.setItem("adresse", station.address);
 
 		    		const address = document.getElementById('address')
@@ -47,13 +52,20 @@ class Map {
 					const bikes = document.getElementById('bikes')
 					bikes.innerHTML = station.available_bike_stands;
 				});
+				const reserver = document.getElementById('reservation');
+				reserver.addEventListener('click', ()=>{
+					if (station.available_bike_stands <= 0) {
+						alert ('pas de vélo disponible è cette station');
+					}else{
+						this.formulaire.style.display = 'inline-block';
+					}
+
+						
+				});
 			} 
 		});
 
-		const reserver = document.getElementById('reservation');
-		reserver.addEventListener('click', ()=>{
-			this.formulaire.style.display = 'inline-block';
-		});
+		
 
 		const continuer = document.getElementById('continuer');
 		continuer.addEventListener('click', ()=>{
@@ -86,10 +98,13 @@ class Map {
            		alert ('Veuillez apposer votre signature!');
             	document.getElementById('countdown').innerHTML = 'Veuillez vérifier les champs du forumlaire.';
             	return false;
-        	}							 	
+        	}		
+        	this.map.style.display = 'none';
+			this.information.style.display = 'none';
+        	this.addInfo(1200);			 	
 		 	this.canvas_signature.style.display = 'none';
 		 	this.resume.style.display = 'block';
-		 	this.addInfo(1200);
+		 	
 		 	
 		 });
 	}

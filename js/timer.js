@@ -7,17 +7,48 @@ class Chronometre{
 		this.isStart= false;
 		this.intervalID = -1;
 		this.resume = document.getElementById('resume');
+		this.popup = document.getElementById('valid_newreserv');
+		this.map = document.getElementById('map');
+		this.information = document.getElementById('information');
 	}
 
     init(){
 
-		const timerend = document.getElementById("new_reservation");
-		timerend.addEventListener("click", ()=> {
+		const newreserv = document.getElementById("new_reservation");
+		newreserv.addEventListener("click", ()=> {
+			this.popup.style.display = 'block';
+			this.finish_res.style.display = 'none';
+    		this.resume.style.display = 'none';
+    		this.map.style.display = 'none';
+    		this.information.style.display = 'none';
+
+		})
+
+		const valid_newreserv = document.getElementById('oui');
+			valid_newreserv.addEventListener("click", ()=> {
 			this.stop_chrono();
+			this.resume.style.display = 'block';
+    		this.map.style.display = 'block';
 			this.countdown.style.display = 'block';
     		this.finish_res.style.display = 'none';
     		this.resume.style.display = 'none';
+    		this.popup.style.display = 'none'
 		})
+
+		const non_valid = document.getElementById('non');
+		non_valid.addEventListener("click", ()=> {
+    		this.information.style.display = 'block';
+			this.resume.style.display = 'none';
+    		this.map.style.display = 'none';
+			this.countdown.style.display = 'block';
+    		this.resume.style.display = 'block';
+    		this.popup.style.display = 'none'
+		})
+
+
+
+
+	
 	}
 
 	stop_chrono(){
@@ -59,7 +90,10 @@ class Chronometre{
        	 	this.intervalID = setInterval(()=>this.action_ival(), 1000);
     	} else {
        		clearInterval(this.intervalID);
+
     	}
+
     }
+
  
 }

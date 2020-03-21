@@ -134,6 +134,35 @@ ul{
 	margin: 0 auto;
 	cursor: pointer;
 }
+#valid_newreserv{
+	width: 200px;
+	height: 100px;
+	border: solid 4px darkgrey;
+	background-color: rgb(99, 240, 95);
+	text-decoration: none;
+	color: black;
+	font-size: 1em;
+	font-weight: bold;
+	align-items: center;
+	display: none;
+	margin: 0 auto;
+	
+
+}
+
+#oui{
+	width: 50px;
+	height: 30px;
+	cursor: pointer;
+	margin-left: 20px;
+}
+
+#non{
+	width: 50px;
+	height: 30px;
+	cursor: pointer;
+	margin-left: 20px;
+}
 
 #formulaire{
 	display: none;

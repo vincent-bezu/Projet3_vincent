@@ -9,6 +9,14 @@ class Slider{
 
 	init () {
 		this.scrolling();
+		document.addEventListener("keydown", (e)=>{
+			if(e.keyCode === 37){
+    			this.previousImage();
+			}
+			else if(e.keyCode === 39){
+   				this.nextImage();
+			}
+		});
 		const next = document.getElementById('next');
 		next.addEventListener('click', ()=> this.nextImage());
 		const previous = document.getElementById('previous');
@@ -21,6 +29,7 @@ class Slider{
 				this.playSlider();
 			}
 		});
+
 	}
 
 
